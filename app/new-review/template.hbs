@@ -1,0 +1,38 @@
+<form {{action saveReview model.formValues on="submit"}}>
+  {{#x-select value=model.formValues.coffeeShop}}
+    {{#x-option value=null}}Please Select A Coffee Shop{{/x-option}}
+    {{#each model.coffeeShops as |shop|}}
+      {{#x-option value=shop}}
+        {{shop.name}}
+      {{/x-option}}
+    {{/each}}
+  {{/x-select}}
+
+  <h3>You are rating it: {{model.formValues.rating}}</h3>
+
+  <div class="star-rating">
+    {{#radio-button value="1" groupValue=model.formValues.rating}}
+    1 <span class="fa {{star-class model.formValues.rating 1}}"></span>
+    {{/radio-button}}
+
+    {{#radio-button value="2" groupValue=model.formValues.rating}}
+    2 <span class="fa {{star-class model.formValues.rating 2}}"></span>
+    {{/radio-button}}
+
+    {{#radio-button value="3" groupValue=model.formValues.rating}}
+    3 <span class="fa {{star-class model.formValues.rating 3}}"></span>
+    {{/radio-button}}
+
+    {{#radio-button value="4" groupValue=model.formValues.rating}}
+    4 <span class="fa {{star-class model.formValues.rating 4}}"></span>
+    {{/radio-button}}
+
+    {{#radio-button value="5" groupValue=model.formValues.rating}}
+    5 <span class="fa {{star-class model.formValues.rating 5}}"></span>
+    {{/radio-button}}
+  </div>
+
+  {{textarea value=model.formValues.comments}}
+
+  <button>Save</button>
+</form>
