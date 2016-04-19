@@ -1,5 +1,12 @@
-{{#each model as |value|}}
+{{#each model as |review|}}
   <p>
-    {{value.rating}} - {{value.coffeeShop.name}}
+    <div class="star-rating">
+      <span class="fa {{star-class review.rating 1}}"></span>
+      <span class="fa {{star-class review.rating 2}}"></span>
+      <span class="fa {{star-class review.rating 3}}"></span>
+      <span class="fa {{star-class review.rating 4}}"></span>
+      <span class="fa {{star-class review.rating 5}}"></span>
+    </div>
+    {{review.rating}} - {{review.coffeeShop.name}}
   </p>
 {{/each}}
